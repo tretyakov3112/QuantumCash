@@ -37,10 +37,6 @@ Nikiforov Dmitrii - financial consultant, code reviewer, implicit scheme creator
 
 ### Conclusions
 
----
-
-## Conclusion
-
 QuantumCash demonstrates how classical numerical methods for PDEs can be seamlessly integrated into a modern, cloud-ready API architecture. The project provides:
 
 - A robust backend for pricing American-style options using both explicit and implicit finite-difference methods.
