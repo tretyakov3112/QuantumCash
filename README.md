@@ -21,7 +21,7 @@ uvicorn main:app --reload
 Then follow the IP adress (opens in browser) and then click ```try out``` button at ```/solve/american-option/view``` or ```/solve/asian-option/view```. If you want, you can change params of calculations. Description of params you can find in ```Schemas``` on ```http://127.0.0.1:8000/docs``` (at the bottom). After changing them you can press big blue button ```execute```. Window with graph should pop out. If not then you should follow alternative way.
 
 Alternative way: In your console (where server was started) will be displayed info in format ```Plot ready: /plot/{id}``` Copy ```plot/{id}``` and insert link in your browser: ```127.0.0.1:8000/plot/{id}``` so you will see graph of calculations.
-
+#### American
 ![plot](pde-solver-api/american.png?raw=true)
 Here you can see graph with default params used. Feel free to adjust them so you can get different results. It is possible to run several graphs on the same server because they will have different ids.
 
@@ -61,7 +61,7 @@ Here are examples of parameters that were tested in request body of american opt
 
 ```
 
-As for asian:
+#### As for Asian graph:
 ![plot](pde-solver-api/asian.png?raw=true)
 Here you can see graph with params:
 
@@ -78,6 +78,9 @@ Here you can see graph with params:
     "grid_points": 120
     }
 ```
+##### European
+Can be found at Jupyter notebook ```pde-solver-api/Anal_Black_Scholes.ipynb```
+
 
 ### Contributed
 
