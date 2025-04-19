@@ -18,14 +18,70 @@ cd pde-solver-api
 uvicorn main:app --reload
 ```
 
-Then follow the IP adress (opens in browser) and then click ```try out``` button at ```/solve/american-option/view```. If you want, you can change params of calculations. After changing them you can press big blue button ```execute```. In your console (where server was started) will be displayed info in format ```GET /plot/{id} HTTP/1.1". Copy "plot/{id}``` and insert link in your browser: ```127.0.0.1:8000/plot/{id}``` so you will see graph of calculations.
+Then follow the IP adress (opens in browser) and then click ```try out``` button at ```/solve/american-option/view``` or ```/solve/asian-option/view```. If you want, you can change params of calculations. Description of params you can find in ```Schemas``` on ```http://127.0.0.1:8000/docs``` (at the bottom). After changing them you can press big blue button ```execute```. Window with graph should pop out. If not then you should follow alternative way.
 
-![plot](pde-solver-api/default_params.png?raw=true)
+Alternative way: In your console (where server was started) will be displayed info in format ```Plot ready: /plot/{id}``` Copy ```plot/{id}``` and insert link in your browser: ```127.0.0.1:8000/plot/{id}``` so you will see graph of calculations.
+
+![plot](pde-solver-api/american.png?raw=true)
 Here you can see graph with default params used. Feel free to adjust them so you can get different results. It is possible to run several graphs on the same server because they will have different ids.
+
+Here are examples of parameters that were tested in request body of american option:
+```
+# for explicit mode
+{
+  "sigma": 0.25,
+  "S0": 50.0,
+  "K": 50.0,
+  "T": 1.0,
+  "r": 0.05,
+  "q": 0.0,
+  "Smax_factor": 3.0,
+  "M": 200,
+  "N": 3000,
+  "method": "explicit",
+  "option_type": "put"
+}
+
+#for implicit mode
+
+{
+  "sigma": 1,
+  "S0": 1,
+  "K": 1,
+  "T": 1.5,
+  "r": 0,
+  "q": 1,
+  "Smax_factor": 3,
+  "M": 200,
+  "N": 1500,
+  "method": "implicit",
+  "option_type": "put"
+}
+
+
+```
+
+As for asian:
+![plot](pde-solver-api/asian.png?raw=true)
+Here you can see graph with params:
+
+```
+    {
+    "sigma": 1,
+    "S0": 1,
+    "K": 1,
+    "T": 1.5,
+    "r": 0.5,
+    "option_type": "put",
+    "n_paths": 15000,
+    "m_steps": 150,
+    "grid_points": 120
+    }
+```
 
 ### Contributed
 
-Tretiakov Aleksandr (group 206), Churilkin Artem(group 206), Nikiforov Dmitrii(group 205).
+Tretiakov Aleksandr (group 206): American option, Churilkin Artem(group 206) - Asian option, Nikiforov Dmitrii(group 205): Black-Sholes analytical solution for European-type options.
 
 ### Zone of responsibility
 

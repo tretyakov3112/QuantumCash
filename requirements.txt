@@ -1,0 +1,7 @@
+fastapi>=0.110
+uvicorn
+plotly>=5.20
+pydantic>=2.7
+numpy>=1.26
+pytest>=8.2
+scikit-learn
