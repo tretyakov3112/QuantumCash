@@ -18,7 +18,13 @@ cd pde-solver-api
 uvicorn main:app --reload
 ```
 
-Then follow the IP adress (opens in browser) and then click ```try out``` button at ```/solve/american-option/view``` or ```/solve/asian-option/view```. If you want, you can change params of calculations. Description of params you can find in ```Schemas``` on ```http://127.0.0.1:8000/docs``` (at the bottom). After changing them you can press big blue button ```execute```. Window with graph should pop out. If not then you should follow alternative way.
+Server should look like this:
+![plot](pde-solver-api/server.png?raw=true)
+
+Follow the IP adress (opens in browser) and then click ```try out``` button at ```/solve/american-option/view``` or ```/solve/asian-option/view```. If you want, you can change params of calculations. Description of params you can find in ```Schemas``` on ```http://127.0.0.1:8000/docs``` (at the bottom). After changing them you can press big blue button ```execute```. Window with graph should pop out. If not then you should follow alternative way.
+
+
+
 
 Alternative way: In your console (where server was started) will be displayed info in format ```Plot ready: /plot/{id}``` Copy ```plot/{id}``` and insert link in your browser: ```127.0.0.1:8000/plot/{id}``` so you will see graph of calculations.
 #### American
